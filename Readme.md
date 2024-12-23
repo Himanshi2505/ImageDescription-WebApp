@@ -25,12 +25,6 @@ This is a web application that generates descriptive captions for uploaded image
 Make sure the following are installed on your system:
 - **Node.js** (v16+ recommended)
 - **Python** (v3.7+)
-- **Git** (to clone the repository)
-- Python libraries:
-  - `transformers`
-  - `torch`
-  - `Pillow`
-
 ---
 
 ## Setup Instructions
