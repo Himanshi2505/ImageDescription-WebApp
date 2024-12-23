@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="/css/upload.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Image</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required />
+            <button type="submit">Generate Description</button>
+        </form>
+        <div id="description"></div>
+    </div>
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", async function (e) {
+            e.preventDefault(); // Prevent default form submission
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch("/describe", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const data = await response.json();
+                if (data.description) {
+                    document.getElementById("description").innerText = `Description: ${data.description}`;
+                } else {
+                    document.getElementById("description").innerText = `Error: ${data.error}`;
+                }
+            } catch (err) {
+                console.error("Fetch error:", err);
+                document.getElementById("description").innerText = `Error: Failed to fetch description.`;
+            }
+        });
+    </script>
+</body>
+</html>
