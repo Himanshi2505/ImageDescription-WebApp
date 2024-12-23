@@ -13,7 +13,7 @@ app.use(express.static("public", {
     setHeaders: (res, path) => {
         console.log(`Serving static file: ${path}`);
     }
-}));
+})); 
 
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
