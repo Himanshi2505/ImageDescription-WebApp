@@ -38,8 +38,10 @@ Make sure the following are installed on your system:
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/Himanshi2505/ImageDescription-WebApp.git
+```
 
 ### 2. Install Node.js Dependencies
+
 
 ```bash 
 cd backend
